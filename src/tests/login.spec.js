@@ -1,23 +1,17 @@
-const { test, expect } = require("@playwright/test");
-const LoginPage = require("../pages/LoginPage");
-const users = require("../data/users");
+import {test, expect} from '@playwright/test'
+import {LoginPage} from '../pages/LoginPage'
+import {users} from '../data/users'
 
-test.describe("Login Functionality", () => {
-  let loginPage;
+test.describe('Login Functionality', () => {
+  test.beforeEach(async ({page}) => {
+    const loginPage = new LoginPage(page)
+    await loginPage.goto()
+  })
 
-  test.beforeEach(async ({ page }) => {
-    loginPage = new LoginPage(page);
-    await loginPage.goto();
-  });
-
-  test("should successfully login with valid credentials", async () => {
-    // Arrange
-    const { username, password } = users.standard;
-
-    // Act
-    await loginPage.login(username, password);
-
-    // Assert
-    await expect(await loginPage.isLoggedIn()).toBeTruthy();
-  });
-});
+  test('should successfully login with valid credentials', async ({page}) => {
+    const loginPage = new LoginPage(page)
+    const {username, password} = users.standard
+    await loginPage.login(username, password)
+    await expect(await loginPage.isLoggedIn()).toBeTruthy()
+  })
+})
