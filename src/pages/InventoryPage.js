@@ -22,3 +22,5 @@ class InventoryPage {
     await this.cartLink.click();
   }
 }
+
+export default InventoryPage;

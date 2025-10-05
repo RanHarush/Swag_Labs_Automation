@@ -1,9 +1,9 @@
-const { test, expect } = require("@playwright/test");
-const LoginPage = require("../pages/LoginPage");
-const InventoryPage = require("../pages/InventoryPage");
-const CartPage = require("../pages/CartPage");
-const CheckoutPage = require("../pages/CheckoutPage");
-const { users } = require("../data/users");
+import { test, expect } from "@playwright/test";
+import LoginPage from "../pages/LoginPage.js";
+import InventoryPage from "../pages/InventoryPage.js";
+import CartPage from "../pages/CartPage.js";
+import CheckoutPage from "../pages/CheckoutPage.js";
+import { users } from "../data/users.js";
 
 test("Complete purchase flow sanity test", async ({ page }) => {
   const loginPage = new LoginPage(page);
