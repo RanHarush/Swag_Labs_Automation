@@ -1,8 +1,6 @@
 export default class CartPage {
   constructor(page) {
     this.page = page
-
-    // Selectors
     this.title = '.title'
     this.checkoutButton = '[data-test="checkout"]'
     this.cartItems = '.cart_item'
@@ -13,7 +11,7 @@ export default class CartPage {
   }
 
   async getItemCount() {
-    return await this.page.$$(this.cartItems).then((items) => items.length)
+    return await this.page.locator(this.cartItems).count()
   }
 
   async proceedToCheckout() {

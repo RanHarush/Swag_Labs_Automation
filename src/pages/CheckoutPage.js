@@ -1,8 +1,6 @@
 export default class CheckoutPage {
   constructor(page) {
     this.page = page
-
-    // Selectors
     this.title = '.title'
     this.firstNameInput = '[data-test="firstName"]'
     this.lastNameInput = '[data-test="lastName"]'

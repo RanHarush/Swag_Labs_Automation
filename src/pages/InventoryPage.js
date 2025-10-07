@@ -1,12 +1,10 @@
 import {expect} from '@playwright/test'
 
-class InventoryPage {
+export default class InventoryPage {
   constructor(page) {
     this.page = page
-
-    // Selectors
     this.title = page.locator('[data-test="title"]')
-    this.addToCartButtons = page.locator('[data-test^="add-to-cart"]')
+    this.addToCartButtons = page.locator('[data-test="add-to-cart"]')
     this.cartBadge = page.locator('[data-test="shopping_cart_badge"]')
     this.cartLink = page.locator('[data-test="shopping_cart_link"]')
   }
@@ -21,6 +19,16 @@ class InventoryPage {
   async goToCart() {
     await this.cartLink.click()
   }
-}
 
-export default InventoryPage
+  async addItemsToCart(count) {
+    const buttons = this.addToCartButtons
+    for (let i = 0; i < count; i++) {
+      await buttons.nth(i).click()
+    }
+  }
+
+  async getCartItemCount() {
+    const badgeText = await this.cartBadge.textContent()
+    return parseInt(badgeText)
+  }
+}

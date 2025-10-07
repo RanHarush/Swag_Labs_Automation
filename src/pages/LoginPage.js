@@ -1,8 +1,6 @@
-class LoginPage {
+export default class LoginPage {
   constructor(page) {
     this.page = page
-
-    // Selectors
     this.usernameInput = '[data-test="username"]'
     this.passwordInput = '[data-test="password"]'
     this.loginButton = '[data-test="login-button"]'
@@ -19,5 +17,3 @@ class LoginPage {
     await this.page.click(this.loginButton)
   }
 }
-
-export default LoginPage
