@@ -7,6 +7,7 @@
   "scripts": {
     "test": "node ./node_modules/@playwright/test/cli.js test",
     "test:sanity": "node ./node_modules/@playwright/test/cli.js test src/tests/sanity.spec.js",
+    "test:login": "node ./node_modules/@playwright/test/cli.js test src/tests/login.spec.js",
     "test:headed": "node ./node_modules/@playwright/test/cli.js test --headed",
     "test:ui": "node ./node_modules/@playwright/test/cli.js test --ui",
     "test:report": "node ./node_modules/@playwright/test/cli.js show-report"
