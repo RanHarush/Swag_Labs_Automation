@@ -4,12 +4,18 @@
   "description": "",
   "main": "index.js",
   "type": "module",
-  "scripts": {},
+  "scripts": {
+    "test": "node ./node_modules/@playwright/test/cli.js test",
+    "test:sanity": "node ./node_modules/@playwright/test/cli.js test src/tests/sanity.spec.js",
+    "test:headed": "node ./node_modules/@playwright/test/cli.js test --headed",
+    "test:ui": "node ./node_modules/@playwright/test/cli.js test --ui",
+    "test:report": "node ./node_modules/@playwright/test/cli.js show-report"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.55.1",
+    "@playwright/test": "^1.56.0",
     "@types/node": "^24.5.2"
   }
 }

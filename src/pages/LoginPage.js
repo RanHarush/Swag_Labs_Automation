@@ -16,4 +16,8 @@ export default class LoginPage {
     await this.page.fill(this.passwordInput, password)
     await this.page.click(this.loginButton)
   }
+
+  async verifySuccessfulLogin() {
+    await this.page.waitForURL('**/inventory.html')
+  }
 }

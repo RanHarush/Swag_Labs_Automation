@@ -4,8 +4,8 @@ export default class InventoryPage {
   constructor(page) {
     this.page = page
     this.title = page.locator('[data-test="title"]')
-    this.addToCartButtons = page.locator('[data-test="add-to-cart"]')
-    this.cartBadge = page.locator('[data-test="shopping_cart_badge"]')
+    this.addToCartButtons = page.locator('[data-test^="add-to-cart"]')
+    this.cartBadge = page.locator('.shopping_cart_badge')
     this.cartLink = page.locator('[data-test="shopping_cart_link"]')
   }
 
@@ -17,7 +17,7 @@ export default class InventoryPage {
   }
 
   async goToCart() {
-    await this.cartLink.click()
+    await this.page.click('.shopping_cart_container')
   }
 
   async addItemsToCart(count) {
@@ -28,7 +28,11 @@ export default class InventoryPage {
   }
 
   async getCartItemCount() {
-    const badgeText = await this.cartBadge.textContent()
-    return parseInt(badgeText)
+    try {
+      const badgeText = await this.cartBadge.textContent()
+      return parseInt(badgeText)
+    } catch {
+      return 0
+    }
   }
 }
