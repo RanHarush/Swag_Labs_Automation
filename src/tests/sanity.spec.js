@@ -39,7 +39,7 @@ test.describe('Purchase Flow Sanity Tests', () => {
     expect(await cartPage.getItemCount()).toBe(2)
   })
 
-  test('should proceed to checkout step one', async ({page}) => {
+  test('should proceed to checkout', async ({page}) => {
     await inventoryPage.goToCart()
     await cartPage.proceedToCheckout()
     expect(await page.url()).toBe(
