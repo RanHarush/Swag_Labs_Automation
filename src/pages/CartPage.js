@@ -1,20 +1,22 @@
+import { expect } from "@playwright/test";
+
 export default class CartPage {
-  constructor(page) {
-    this.page = page
-    this.title = '.title'
-    this.checkoutButton = '[data-test="checkout"]'
-    this.cartItems = '.cart_item'
-  }
+	constructor(page) {
+		this.page = page;
+		this.title = page.locator(".title");
+		this.checkoutButton = page.locator('[data-test="checkout"]');
+		this.cartItems = page.locator(".cart_item");
+	}
 
-  async getTitle() {
-    return await this.page.textContent(this.title)
-  }
+	async getTitle() {
+		return await this.title.textContent();
+	}
 
-  async getItemCount() {
-    return await this.page.locator(this.cartItems).count()
-  }
+	async getItemCount(number) {
+		await expect(this.cartItems).toHaveCount(number);
+	}
 
-  async proceedToCheckout() {
-    await this.page.click(this.checkoutButton)
-  }
+	async proceedToCheckout() {
+		await this.checkoutButton.click();
+	}
 }
