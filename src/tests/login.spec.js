@@ -1,7 +1,7 @@
 import {expect, test} from '@playwright/test'
 import LoginPage from '../pages/LoginPage.js'
 import {validUsers, negativeTestCases} from '../data/usersCombos.js'
-import {InventoryPage} from '../pages/InventoryPage.js'
+import InventoryPage from '../pages/InventoryPage.js'
 
 test.describe('Positive Login Tests', () => {
   test.beforeEach(async ({page}) => {
