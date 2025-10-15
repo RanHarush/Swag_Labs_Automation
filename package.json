@@ -1,22 +1,25 @@
 {
-	"name": "mcp_project",
-	"version": "1.0.0",
-	"description": "",
-	"main": "index.js",
-	"type": "module",
-	"scripts": {
-		"test": "playwright test",
-		"test:sanity": "playwright test src/tests/sanity.spec.js",
-		"test:login": "playwright test src/tests/login.spec.js",
-		"test:headed": "playwright test --headed",
-		"test:ui": "playwright test --ui",
-		"test:report": "playwright show-report"
-	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
-	"devDependencies": {
-		"@playwright/test": "^1.56.0",
-		"@types/node": "^24.5.2"
-	}
+  "name": "mcp_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "playwright test",
+    "test:chromium": "playwright test --project=chromium",
+    "test:firefox": "playwright test --project=firefox",
+    "test:webkit": "playwright test --project=webkit",
+    "test:sanity": "playwright test src/tests/sanity.spec.js",
+    "test:login": "playwright test src/tests/login.spec.js",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "test:report": "playwright show-report"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.56.0",
+    "@types/node": "^24.5.2"
+  }
 }
