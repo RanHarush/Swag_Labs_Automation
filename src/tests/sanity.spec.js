@@ -62,7 +62,7 @@ test.describe("Purchase Flow Sanity Tests", () => {
 		await checkoutPage.finishCheckout();
 		await expect(page).toHaveURL(URLS.CHECKOUT_COMPLETE);
 		await expect(checkoutPage).toHaveTitle("Checkout: Complete!");
-		await expect(checkoutPage.getCompleteHeader()).toContain(
+		expect(await checkoutPage.getCompleteHeader()).toContain(
 			"Thank you for your order",
 		);
 	});
