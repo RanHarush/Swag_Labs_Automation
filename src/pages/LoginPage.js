@@ -1,5 +1,5 @@
 import {expect} from '@playwright/test'
-import {URLS, BASE_URL} from '../data/urls.js'
+import {BASE_URL} from '../data/urls.js'
 
 export default class LoginPage {
   constructor(page) {
@@ -18,5 +18,12 @@ export default class LoginPage {
     await this.usernameInput.fill(username)
     await this.passwordInput.fill(password)
     await this.loginButton.click()
+  }
+
+  async errorHandler(expectedError) {
+    await expect(this.errorMessage).toBeVisible()
+    if (expectedError) {
+      await expect(this.errorMessage).toContainText(expectedError)
+    }
   }
 }
