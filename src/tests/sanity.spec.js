@@ -29,14 +29,10 @@ test.describe('Purchase Flow Sanity Tests', () => {
     await inventoryPage.goToCart()
     await expect(page).toHaveURL(URLS.CART)
     await inventoryPage.validatePageTitle('Your Cart')
-    // you need to assert the items in the cart page (the actual items and not the cart badge again)
-    // getItemCount already does that in line 35
     await cartPage.getItemCount(2)
     await cartPage.proceedToCheckout()
     await expect(page).toHaveURL(URLS.CHECKOUT)
     await inventoryPage.validatePageTitle('Checkout: Your Information')
-    // you need to click the button re-direct to the order form fill page
-    // proceedToCheckout already does that in line 36
     await checkoutPage.fillCheckoutInfo('Test', 'User', '12345')
     await expect(page).toHaveURL(URLS.CHECKOUT_OVERVIEW)
     await inventoryPage.validatePageTitle('Checkout: Overview')
