@@ -29,7 +29,6 @@ test.describe('Negative Login Tests', () => {
     test(`should show error for ${user.name}`, async ({page}) => {
       const loginPage = new LoginPage(page)
       await loginPage.login(user.username, user.password)
-      // you need to validate the error message inside the locator for each invalid login scenario
       await loginPage.errorHandler(user.expectedError)
     })
   })

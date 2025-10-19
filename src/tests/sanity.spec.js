@@ -20,8 +20,8 @@ test.describe('Purchase Flow Sanity Tests', () => {
 
     await loginPage.goto()
     await loginPage.login(users.standard.username, users.standard.password)
-    await inventoryPage.addItemsToCart(2)
     await inventoryPage.validateLogin()
+    await inventoryPage.addItemsToCart(2)
     await inventoryPage.validateCartItemCount(2)
   })
 

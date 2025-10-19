@@ -22,8 +22,6 @@ export default class LoginPage {
 
   async errorHandler(expectedError) {
     await expect(this.errorMessage).toBeVisible()
-    if (expectedError) {
-      await expect(this.errorMessage).toContainText(expectedError)
-    }
+    await expect(this.errorMessage).toContainText(expectedError)
   }
 }
