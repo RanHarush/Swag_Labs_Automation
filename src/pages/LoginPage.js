@@ -19,8 +19,4 @@ export default class LoginPage {
     await this.passwordInput.fill(password)
     await this.loginButton.click()
   }
-
-  async verifySuccessfulLogin() {
-    await expect(this.page).toHaveURL(URLS.INVENTORY)
-  }
 }
