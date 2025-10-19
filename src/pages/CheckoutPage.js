@@ -28,6 +28,6 @@ export default class CheckoutPage {
   }
 
   async validateCompleteHeader() {
-    await expect(this.completeHeader).toContainText('Thank you for your order')
+    await expect(this.completeHeader).toHaveText('Thank you for your order')
   }
 }

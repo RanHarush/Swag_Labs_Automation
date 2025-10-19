@@ -28,7 +28,6 @@ export default class InventoryPage {
   }
 
   async validateCartItemCount(expectedCount) {
-    const actualCount = Number(await this.cartBadge.textContent())
     await expect(this.cartBadge).toHaveText(String(expectedCount))
   }
 
